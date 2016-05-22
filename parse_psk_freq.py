@@ -103,7 +103,7 @@ for wavelength in psk_wavelength_list:
     spots30m = spots30m + int(m[2])
   elif m[0] == "40m":
     score40m = score40m + int(m[1])
-    spots40m = spots20m + int(m[2])
+    spots40m = spots40m + int(m[2])
 # just in case more frequencies added 
   else:
     print wavelength
@@ -114,4 +114,4 @@ print "15m score:", score15m, "spots:", spots15m
 print "17m score:", score17m, "spots:", spots17m
 print "20m score:", score20m, "spots:", spots20m
 print "30m score:", score30m, "spots:", spots30m
-print "40m score:", score40m, "spots:", spots30m
+print "40m score:", score40m, "spots:", spots40m
