@@ -1,0 +1,3 @@
+#!/bin/sh
+curl "http://pskreporter.info/cgi-bin/psk-freq.pl?grid=KM" > /usr/lib/cgi-bin/psk-freq.pl
+
