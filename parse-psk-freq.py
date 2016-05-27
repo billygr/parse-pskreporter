@@ -7,6 +7,8 @@ import time
 import datetime
 import re
 
+band6m = {'score': 0, 'spots': 0, 'tx': 0, 'rw': 0}
+
 print "Content-type: text/plain; charset=us-ascii\r\n"
 
 #Pending 160m frequencies 1820000
@@ -35,7 +37,7 @@ rep = {
        "21000000" : "15m", "21010000" : "15m", "21020000" : "15m",
        "21030000" : "15m", "21040000" : "15m", "21060000" : "15m",
        "21070000" : "15m", "21080000" : "15m", "21090000" : "15m",
-       "21270000" : "15m",
+       "21120000" : "15m", "21270000" : "15m",
 
        "24890000" : "12m", "24900000" : "12m", "24910000" : "12m",
 
@@ -44,7 +46,7 @@ rep = {
        "28080000" : "10m", "28120000" : "10m", "28140000" : "10m",
        "28450000" : "10m",
 
-       "50100000" : "6m", "50280000" : "6m"
+       "50100000" : "6m", "50110000" : "6m", "50280000" : "6m"
 } 
 
 try:
@@ -100,6 +102,9 @@ spots80m = 0
 for wavelength in psk_wavelength_list:
   m = re.split('\s+',wavelength)
   if m[0] == "6m":
+    band6m['score'] +=int(m[1]);
+    band6m['spots'] +=int(m[2]);
+
     score6m = score6m + int(m[1])
     spots6m = spots6m + int(m[2])
     band_list.append("6m")
@@ -140,7 +145,7 @@ for wavelength in psk_wavelength_list:
     print wavelength
 
 # Score displayed is the SUM of all scores provided for all frequencies in this band
-print " 6m score:", score6m, "spots:", spots6m
+print " 6m score:", band6m['score'], "spots:", band6m['spots']
 print "10m score:", score10m, "spots:", spots10m
 print "12m score:", score12m, "spots:", spots12m
 print "15m score:", score15m, "spots:", spots15m
