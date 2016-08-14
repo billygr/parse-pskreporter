@@ -7,11 +7,9 @@ import time
 import datetime
 import re
 
-band6m = {'score': 0, 'spots': 0, 'tx': 0, 'rw': 0}
+band6m = {'score': 0, 'spots': 0, 'tx': 0, 'rx': 0}
 
 print "Content-type: text/plain; charset=us-ascii\r\n"
-
-#Pending 160m frequencies
 
 rep = {
        "1810000" : "160m", "1820000" : "160m", "1830000" : "160m",
@@ -96,6 +94,7 @@ score20m = 0
 score30m = 0
 score40m = 0
 score80m = 0
+score160m = 0
 
 spots6m = 0
 spots10m = 0
@@ -106,6 +105,7 @@ spots20m = 0
 spots30m = 0
 spots40m = 0
 spots80m = 0
+spots160m = 0
 
 for wavelength in psk_wavelength_list:
   m = re.split('\s+',wavelength)
@@ -148,6 +148,10 @@ for wavelength in psk_wavelength_list:
     score80m = score80m + int(m[1])
     spots80m = spots80m + int(m[2])
     band_list.append("80m")
+  elif m[0] == "160m":
+    score160m = score160m + int(m[1])
+    spots160m = spots160m + int(m[2])
+    band_list.append("160m")
 # just in case more frequencies added 
   else:
     print wavelength
@@ -161,7 +165,8 @@ print "17m score:", score17m, "spots:", spots17m
 print "20m score:", score20m, "spots:", spots20m
 print "30m score:", score30m, "spots:", spots30m
 print "40m score:", score40m, "spots:", spots40m
-print "80m score:", score80m, "spots:", spots80m,"\r\n"
+print "80m score:", score80m, "spots:", spots80m
+print "160m score:", score160m, "spots:", spots160m,"\r\n"
 
 print " 6m Frequencies:",  band_list.count("6m"), "spots:",spots6m
 print "10m Frequencies:", band_list.count("10m"), "spots:",spots10m
@@ -172,3 +177,4 @@ print "20m Frequencies:", band_list.count("20m"), "spots:",spots20m
 print "30m Frequencies:", band_list.count("30m"), "spots:",spots30m
 print "40m Frequencies:", band_list.count("40m"), "spots:",spots40m
 print "80m Frequencies:", band_list.count("80m"), "spots:",spots80m
+print "160m Frequencies:", band_list.count("160m"), "spots:",spots160m
