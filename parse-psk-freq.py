@@ -10,14 +10,15 @@ import re
 
 print ("Content-type: text/plain; charset=us-ascii\r\n")
 
+#bug on string match 1810000 160m/17m
 rep = {
-    "1810000" : "160m", "1820000" : "160m", "1830000" : "160m",
+    "1820000" : "160m", "1830000" : "160m",
     "1840000" : "160m",
 
     "3500000" : "80m", "3510000" : "80m", "3520000" : "80m",
     "3530000" : "80m", "3540000" : "80m", "3550000" : "80m",
     "3560000" : "80m", "3580000" : "80m", "3680000" : "80m",
-    "3570000" : "80m",
+    "3570000" : "80m", "3370000" : "80m",
 
     "5290000" : "60m",
     "5360000" : "60m",
@@ -94,6 +95,10 @@ for line in lines:
     psk_wavelength_list.append(line)
 # debug
     # print ("",line)
+
+# debug
+#print ("psk_wavelength_list content:\r\n",* psk_wavelength_list)
+#print ("end of list")
 
 # Sorted with wavelength
 psk_wavelength_list.sort()
@@ -176,7 +181,7 @@ for wavelength in psk_wavelength_list:
         band_list.append("23cm")
     else:
 # just in case more frequencies added
-        print (wavelength);print("m[0] value:",m[0])
+        print (wavelength)#;print("m[0] value:",m[0])
 
 # Score displayed is the SUM of all scores provided for all frequencies in this band
 print ("\r\nScored displayed is the SUM of all score provided for all frequencies in this band")
