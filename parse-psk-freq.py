@@ -61,7 +61,9 @@ rep = {
     "50310000" : "6m", "50320000" : "6m",
     "50140000" : "6m", "50280000" : "6m", "51980000" : "6m",
 
-    "144170000" :"2m",
+    "70160000" : "4m",
+
+    "144170000" : "2m", "144180000" : "2m",
 
     "1296600000" : "23cm"
 }
@@ -74,6 +76,7 @@ try:
         #lines = filter(None, (lines.rstrip() for lines in file_content))
         for line in f_in:
             if not line.startswith('#'):
+              if not line.startswith('0'):
                 line.rstrip()
                 lines.append(line)
 #                print(line)
@@ -112,6 +115,7 @@ band_list = []
 
 score23cm = 0; spots23cm = 0
 score2m = 0 ; spots2m = 0
+score4m = 0 ; spots4m = 0
 score6m = 0 ; spots6m = 0
 score10m = 0 ; spots10m = 0
 score12m = 0 ; spots12m = 0
@@ -175,6 +179,10 @@ for wavelength in psk_wavelength_list:
         score2m = score2m + int(m[1])
         spots2m = spots2m + int(m[2])
         band_list.append("2m")
+    elif m[0] == "4m":
+        score2m = score4m + int(m[1])
+        spots2m = spots4m + int(m[2])
+        band_list.append("4m")
     elif m[0] == "23cm":
         score23m = score23cm + int(m[1])
         spots23m = spots23cm + int(m[2])
@@ -187,6 +195,7 @@ for wavelength in psk_wavelength_list:
 print("\r\n")
 print ("Scored displayed is the SUM of all score provided for all frequencies in this band")
 
+print ("  4m score: %-*s spots: %s" % (5,score4m, spots4m))
 print ("  6m score: %-*s spots: %s" % (5,score6m, spots6m))
 print (" 10m score: %-*s spots: %s" % (5,score10m, spots10m))
 print (" 12m score: %-*s spots: %s" % (5,score12m, spots12m))
@@ -200,6 +209,7 @@ print (" 80m score: %-*s spots: %s" % (5,score80m, spots80m))
 print ("160m score: %-*s spots: %s" % (5,score160m, spots160m))
 
 print("\r\n")
+print ("  4m Frequencies: %-*s spots: %s" % (5,band_list.count("4m"),spots4m))
 print ("  6m Frequencies: %-*s spots: %s" % (5,band_list.count("6m"),spots6m))
 print (" 10m Frequencies: %-*s spots: %s" % (5,band_list.count("10m"),spots10m))
 print (" 12m Frequencies: %-*s spots: %s" % (5,band_list.count("12m"),spots12m))
