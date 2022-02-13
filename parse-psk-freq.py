@@ -20,8 +20,7 @@ rep = {
     "3560000" : "80m", "3580000" : "80m", "3680000" : "80m",
     "3570000" : "80m", "3370000" : "80m",
 
-    "5290000" : "60m",
-    "5360000" : "60m",
+    "5290000" : "60m", "5360000" : "60m",
 
     "7000000" : "40m", "7010000" : "40m", "7020000" : "40m",
     "7030000" : "40m", "7040000" : "40m", "7050000" : "40m",
@@ -56,9 +55,10 @@ rep = {
     "28060000" : "10m", "28070000" : "10m", "28080000" : "10m",
     "28120000" : "10m", "28140000" : "10m", "28300000" : "10m",
     "28130000" : "10m", "28410000" : "10m", "28450000" : "10m",
+    "28180000" : "10m", "28600000" : "10m",
 
     "50100000" : "6m", "50110000" : "6m", "50130000" : "6m",
-    "50320000" : "6m",
+    "50310000" : "6m", "50320000" : "6m",
     "50140000" : "6m", "50280000" : "6m", "51980000" : "6m",
 
     "144170000" :"2m",
@@ -184,27 +184,30 @@ for wavelength in psk_wavelength_list:
         print (wavelength)#;print("m[0] value:",m[0])
 
 # Score displayed is the SUM of all scores provided for all frequencies in this band
-print ("\r\nScored displayed is the SUM of all score provided for all frequencies in this band")
-print (" 6m score:", score6m, "spots:", spots6m)
-print ("10m score:", score10m, "spots:", spots10m)
-print ("12m score:", score12m, "spots:", spots12m)
-print ("15m score:", score15m, "spots:", spots15m)
-print ("17m score:", score17m, "spots:", spots17m)
-print ("20m score:", score20m, "spots:", spots20m)
-print ("30m score:", score30m, "spots:", spots30m)
-print ("40m score:", score40m, "spots:", spots40m)
-print ("60m score:", score60m, "spots:", spots60m)
-print ("80m score:", score80m, "spots:", spots80m)
-print ("160m score:", score160m, "spots:", spots160m)
+print("\r\n")
+print ("Scored displayed is the SUM of all score provided for all frequencies in this band")
 
-print ("\r\n 6m Frequencies:",  band_list.count("6m"), "spots:",spots6m)
-print ("10m Frequencies:", band_list.count("10m"), "spots:",spots10m)
-print ("12m Frequencies:", band_list.count("12m"), "spots:",spots12m)
-print ("15m Frequencies:", band_list.count("15m"), "spots:",spots15m)
-print ("17m Frequencies:", band_list.count("17m"), "spots:",spots17m)
-print ("20m Frequencies:", band_list.count("20m"), "spots:",spots20m)
-print ("30m Frequencies:", band_list.count("30m"), "spots:",spots30m)
-print ("40m Frequencies:", band_list.count("40m"), "spots:",spots40m)
-print ("60m Frequencies:", band_list.count("60m"), "spots:",spots60m)
-print ("80m Frequencies:", band_list.count("80m"), "spots:",spots80m)
-print ("160m Frequencies:", band_list.count("160m"), "spots:",spots160m)
+print ("  6m score: %-*s spots: %s" % (5,score6m, spots6m))
+print (" 10m score: %-*s spots: %s" % (5,score10m, spots10m))
+print (" 12m score: %-*s spots: %s" % (5,score12m, spots12m))
+print (" 15m score: %-*s spots: %s" % (5,score15m, spots15m))
+print (" 17m score: %-*s spots: %s" % (5,score17m, spots17m))
+print (" 20m score: %-*s spots: %s" % (5,score20m, spots20m))
+print (" 30m score: %-*s spots: %s" % (5,score30m, spots30m))
+print (" 40m score: %-*s spots: %s" % (5,score40m, spots40m))
+print (" 60m score: %-*s spots: %s" % (5,score60m, spots60m))
+print (" 80m score: %-*s spots: %s" % (5,score80m, spots80m))
+print ("160m score: %-*s spots: %s" % (5,score160m, spots160m))
+
+print("\r\n")
+print ("  6m Frequencies: %-*s spots: %s" % (5,band_list.count("6m"),spots6m))
+print (" 10m Frequencies: %-*s spots: %s" % (5,band_list.count("10m"),spots10m))
+print (" 12m Frequencies: %-*s spots: %s" % (5,band_list.count("12m"),spots12m))
+print (" 15m Frequencies: %-*s spots: %s" % (5,band_list.count("15m"),spots15m))
+print (" 17m Frequencies: %-*s spots: %s" % (5,band_list.count("17m"),spots17m))
+print (" 20m Frequencies: %-*s spots: %s" % (5,band_list.count("20m"),spots20m))
+print (" 30m Frequencies: %-*s spots: %s" % (5,band_list.count("30m"),spots30m))
+print (" 40m Frequencies: %-*s spots: %s" % (5,band_list.count("40m"),spots40m))
+print (" 60m Frequencies: %-*s spots: %s" % (5,band_list.count("60m"),spots60m))
+print (" 80m Frequencies: %-*s spots: %s" % (5,band_list.count("80m"),spots80m))
+print ("160m Frequencies: %-*s spots: %s" % (5,band_list.count("160m"),spots160m))
