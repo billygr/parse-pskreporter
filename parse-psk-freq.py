@@ -65,7 +65,9 @@ rep = {
 
     "144130000" : "2m", "144170000" : "2m", "144180000" : "2m",
 
-    "1296600000" : "23cm"
+    "1296600000" : "23cm",
+
+    "2400040000" : "13cm", "2400600000" : "13cm"
 }
 
 lines = []
@@ -113,6 +115,7 @@ psk_wavelength_list.sort()
 # Use a list for keeping the bands
 band_list = []
 
+score13cm = 0; spots13cm = 0
 score23cm = 0; spots23cm = 0
 score2m = 0 ; spots2m = 0
 score4m = 0 ; spots4m = 0
@@ -186,6 +189,10 @@ for wavelength in psk_wavelength_list:
         score23m = score23cm + int(m[1])
         spots23m = spots23cm + int(m[2])
         band_list.append("23cm")
+    elif m[0] == "13cm":
+        score13m = score13cm + int(m[1])
+        spots13m = spots13cm + int(m[2])
+        band_list.append("13cm")
     else:
 # just in case more frequencies added
         print ("Additional frequencies to add: ", wavelength);#print("m[0] value:",m[0])
