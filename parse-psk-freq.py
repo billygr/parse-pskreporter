@@ -170,8 +170,8 @@ for wavelength in psk_wavelength_list:
         spots40m = spots40m + int(m[2])
         band_list.append("40m")
     elif m[0] == "60m":
-        score40m = score60m + int(m[1])
-        spots40m = spots60m + int(m[2])
+        score60m = score60m + int(m[1])
+        spots60m = spots60m + int(m[2])
         band_list.append("60m")
     elif m[0] == "80m":
         score80m = score80m + int(m[1])
@@ -186,16 +186,16 @@ for wavelength in psk_wavelength_list:
         spots2m = spots2m + int(m[2])
         band_list.append("2m")
     elif m[0] == "4m":
-        score2m = score4m + int(m[1])
-        spots2m = spots4m + int(m[2])
+        score4m = score4m + int(m[1])
+        spots4m = spots4m + int(m[2])
         band_list.append("4m")
     elif m[0] == "23cm":
-        score23m = score23cm + int(m[1])
-        spots23m = spots23cm + int(m[2])
+        score23cm = score23cm + int(m[1])
+        spots23cm = spots23cm + int(m[2])
         band_list.append("23cm")
     elif m[0] == "13cm":
-        score13m = score13cm + int(m[1])
-        spots13m = spots13cm + int(m[2])
+        score13cm = score13cm + int(m[1])
+        spots13cm = spots13cm + int(m[2])
         band_list.append("13cm")
     else:
 # just in case more frequencies added
@@ -203,7 +203,7 @@ for wavelength in psk_wavelength_list:
 
 # Score displayed is the SUM of all scores provided for all frequencies in this band
 print("\r\n")
-print ("Scored displayed is the SUM of all score provided for all frequencies in this band")
+print ("Score displayed is the SUM of all scores provided for all frequencies in this band")
 
 print ("160m score: %-*s spots: %s" % (5,score160m, spots160m))
 print (" 80m score: %-*s spots: %s" % (5,score80m, spots80m))
@@ -217,6 +217,9 @@ print (" 12m score: %-*s spots: %s" % (5,score12m, spots12m))
 print (" 10m score: %-*s spots: %s" % (5,score10m, spots10m))
 print ("  6m score: %-*s spots: %s" % (5,score6m, spots6m))
 print ("  4m score: %-*s spots: %s" % (5,score4m, spots4m))
+print ("  2m score: %-*s spots: %s" % (5,score2m, spots2m))
+print ("23cm score: %-*s spots: %s" % (5,score23cm, spots23cm))
+print ("13cm score: %-*s spots: %s" % (5,score13cm, spots13cm))
 
 print("\r\n")
 print ("160m Frequencies: %-*s spots: %s" % (5,band_list.count("160m"),spots160m))
@@ -231,3 +234,6 @@ print (" 12m Frequencies: %-*s spots: %s" % (5,band_list.count("12m"),spots12m))
 print (" 10m Frequencies: %-*s spots: %s" % (5,band_list.count("10m"),spots10m))
 print ("  6m Frequencies: %-*s spots: %s" % (5,band_list.count("6m"),spots6m))
 print ("  4m Frequencies: %-*s spots: %s" % (5,band_list.count("4m"),spots4m))
+print ("  2m Frequencies: %-*s spots: %s" % (5,band_list.count("2m"),spots2m))
+print ("23cm Frequencies: %-*s spots: %s" % (5,band_list.count("23cm"),spots23cm))
+print ("13cm Frequencies: %-*s spots: %s" % (5,band_list.count("13cm"),spots13cm))
