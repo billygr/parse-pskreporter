@@ -11,6 +11,9 @@ import json
 
 print ("Content-type: text/plain; charset=us-ascii\r\n")
 
+# Display script execution timestamp
+print ("Script executed at: ", datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"), "UTC")
+
 # Load frequency to band mapping from external file
 def load_frequency_map(filename='frequency_map.json'):
     """Load frequency to band mapping from JSON file"""
@@ -43,7 +46,7 @@ except IOError as e:
     sys.exit("Unable to open file psk-freq.pl")
 
 dt = os.path.getmtime("psk-freq.pl")
-print ("Last Modified: ", (datetime.datetime.utcfromtimestamp(dt)),"UTC")
+print ("Last Modified:      ", datetime.datetime.utcfromtimestamp(dt).strftime("%Y-%m-%d %H:%M:%S"), "UTC")
 
 psk_wavelength_list = []
 
